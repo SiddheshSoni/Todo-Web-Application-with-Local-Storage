@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTodo } from "../context";
 
 export function TodoItem({ todo }) {
@@ -23,7 +23,7 @@ export function TodoItem({ todo }) {
     return (
         <div
             className={`flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300  text-black ${
-                todo.completed ? "bg-[#c6e9a7]" : "bg-[#ccbed7]"
+                todo.checked ? "bg-[#c6e9a7]" : "bg-[#b8f0e4] dark:bg-[#ccbed7] "
             }`}
         >
             <input
@@ -58,7 +58,7 @@ export function TodoItem({ todo }) {
             {/* Delete Todo Button */}
             <button
                 className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0"
-                onClick={() => dlt(todo.id)}
+                onClick={() => dlt(todo._id)}
             >
                 ❌
             </button>

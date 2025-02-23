@@ -5,7 +5,6 @@ import { DarkProvider } from "./context";
 import { TodoForm } from "./components/TodoForm";
 import { TodoItem } from "./components/TodoItem";
 import ModeSwitcher from "./components/ThemeBtn";
-import Date from "./utilities/Date";
 
 function App() {
   const [themeMode, setThemeMode] = useState(() => {
@@ -19,9 +18,8 @@ function App() {
     localStorage.setItem("themeMode", themeMode);
   }, [themeMode]);
 
-  /////////////////////////// Added some Filler text/instructions ///////////////////////////
   const initialTodos = () => {
-    const existingTodos = JSON.parse(localStorage.getItem("todos"));  // Stored data in local storage. "todos" is the key!!!
+    const existingTodos = JSON.parse(localStorage.getItem("todos"));
 
     if (existingTodos && existingTodos.length > 0) {
        return existingTodos;
@@ -47,7 +45,7 @@ function App() {
       }
     }
 
-  // Assigning initialTodos() to useState so it loads the component once and store it.
+
   const [todos, setTodos] = useState(initialTodos);
 
   const addTodo = (todo) => {
@@ -72,7 +70,7 @@ function App() {
     );
   };
 
-  // const date = Date;
+  
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -83,18 +81,13 @@ function App() {
       <TodoProvider
         value={{ todos, addTodo, updateTodo, deleteTodo, isToggled }}
       >
-        <div className=" bg-white dark:bg-[#172842] min-h-screen py-8">
-            <div className=" p-2 dark:bg-[#e7f5f5] bg-[#122440] text-white dark:text-[#172842] rounded w-fit absolute top-5 left-5">  
-              
-            <h1 className="text-2xl font-bold ">{Date}</h1>
-            </div>
+        <div className="bg-white dark:bg-[#172842] min-h-screen py-8">
           <div className="absolute top-5 right-5">
             <ModeSwitcher/>
           </div>
-          <div className="
-          w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 bg-[#e7f5f5] dark:bg-[#122440] dark:text-white text-[#172842]">
+          <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 bg-[#e7f5f5] dark:bg-[#122440] dark:text-white text-[#172842]">
             <h1 className=" text-2xl font-bold text-center mb-8 mt-2">
-              Todos 
+              Todos{" "}
             </h1>
             <div className="mb-4">
               <TodoForm />

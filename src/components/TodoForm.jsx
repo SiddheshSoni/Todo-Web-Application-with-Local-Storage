@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTodo } from "../context";
 
 export function TodoForm() {
@@ -6,7 +6,7 @@ export function TodoForm() {
     const{ addTodo} = useTodo();
 
     const addtodo = (e) =>{
-        e.preventDefault;
+        e.preventDefault(); //parenthesis added! :P
         
         if(!todo) return
 

@@ -1,13 +1,9 @@
+const currentDate = new Date();
+const options ={ 
+    month: "long", 
+    day: "numeric",
+    year: "numeric"
+}
+const formattedDate = currentDate.toLocaleString("en-US", options);
 
-// const today = new Date();
-
-// const curDate = today.getMonth();
-
-// const date = today.getDate();
-
-// export default curDate;
-
-
-
-
-////////////////////////////////DUE/////////////////////////////////////
+export default formattedDate;
